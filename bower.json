@@ -1,0 +1,23 @@
+{
+  "name": "lottery",
+  "homepage": "https://github.com/TOP-Chao/lottery",
+  "authors": [
+    "wenchao <wendaye0204@qq.com>"
+  ],
+  "description": "",
+  "main": "gulpfile.js",
+  "moduleType": [],
+  "license": "MIT",
+  "ignore": [
+    "**/.*",
+    "node_modules",
+    "bower_components",
+    "test",
+    "tests",
+    "examples"
+  ],
+  "devDependencies": {
+    "angular": "~1.4.7",
+    "top-webapp": "0.0.1"
+  }
+}

@@ -1,0 +1,66 @@
+<!DOCTYPE html>
+<html lang="en" ng-app="app">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="screen-orientation" content="portrait">
+    <title>刮刮卡</title>
+    <script src="../bower_components/top-webapp/script/base.js"></script>
+    <link rel="stylesheet" href="css/style.css"/>
+</head>
+<body ng-controller="AppCtrl">
+<div class="m-lottery-scratch f-box">
+    <div class="game" ui-lottery-scratch
+         lottery="lottery"
+         on-ready="onReady(config)"
+         on-result="onResult(result)">
+        <canvas class="card"></canvas>
+        <div class="ceiling" ng-hide="lottery.state != 0 && lottery.state != 3">
+            <span class="tip"
+                  ng-bind="lottery.state == 0 ? '拼手气，赢大奖励' : lottery.state == 3 ? lottery.result.prize_name == '未中奖' ? '谢谢参与' : '恭喜你，中了' + lottery.result.prize_level_name: ''"></span>
+            <button ng-hide="lottery.state != 0" ng-click="lottery.start()">开始刮奖</button>
+            <button ng-hide="lottery.state != 3" ng-click="lottery.reset()">再来一次</button>
+        </div>
+    </div>
+    <dl class="des" ng-hide="lottery.config == null">
+        <dt>【摇奖规则】</dt>
+        <dd ng-repeat="rul in lottery.config.rul" ng-bind="rul.remark_content"></dd>
+        <dt>【奖品兑换】</dt>
+        <dd ng-repeat="des in lottery.config.des" ng-bind="des.remark_content"></dd>
+    </dl>
+</div>
+</body>
+<script src="../bower_components/angular/angular.js"></script>
+<script src="js/ng-lottery.min.js"></script>
+<script>
+    var app = angular.module('app', ['ngLottery']);
+    app.constant('lotteryConfig', {
+        game: {
+            size: 20, //滑动区域大小
+            percent: 50, //激活百分比到谋个值 就全显示
+            variable: true //canvas的大小是否是可变的
+        },
+        request: {
+            data: {
+                'lottery_id': 54,
+                'userAccount': getQueryString('userAccount') || ''
+            },
+            url: 'http://cif-voteproxy.heikuai.com:8301/votepoxyif/common/common!getInterface.action',
+            ifName: ['IF00200010', 'IF00200011']
+        },
+        timeout: 500 //显示结果延迟
+    });
+    app.controller('AppCtrl', ['$scope', function ($scope) {
+        $scope.lottery = null;
+        $scope.onReady = function (config) {
+            document.title = config.lottery_name;
+        };
+        $scope.onResult = function (result) {
+            console.log(result);
+        };
+    }]);
+</script>
+</html>

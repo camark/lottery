@@ -1,0 +1,87 @@
+@import "../../bower_components/top-webapp/scss/mixins";
+@import "../../bower_components/top-webapp/scss/base";
+
+.m-ui-dial{position: relative;width: 499px;height: 499px;margin: 0 auto;background: url("../images/dial_bg.png") no-repeat center;background-size: 100%;}
+.m-ui-dial .pointer{margin-top: -139px !important;background: url("../images/dial_pointer.png") no-repeat center;background-size: 100%;
+  @include box-center(150px, 238px);
+  @include transform-origin(75px 139px);
+}
+.m-ui-dial .btn{position: absolute;top: 64px;left: 0;display: block;width: 150px;height: 150px;
+  @include border-radius(75px);
+}
+
+.m-ui-scratch{display: block;width: 300px;height: 172.5px;margin: 20px auto;background: no-repeat center;background-size: 100%;}
+
+.m-ui-button{display: block;width: 160px;height: 32px;margin: 0 auto;text-align: center;line-height: 32px;font-size: 12px;color: #fff;background-color: #f94804;cursor: pointer;
+  @include border-radius(5px);
+}
+
+.m-ui-tiger{position: relative;width: 640px;height: 432px;margin: 20px auto;background: url("../images/tiger_bg.png") no-repeat;}
+.m-ui-tiger .toggle{position: absolute;top: 306px;left: 119px;display: block;width: 404px;height: 50px;}
+.m-ui-tiger .item{position: absolute;top: 77px;left: 139px;display: block;width: 110px;height: 135px;overflow: hidden;}
+.m-ui-tiger .item:nth-child(2){left: 265px;}
+.m-ui-tiger .item:nth-child(3){left: 391px;}
+.m-ui-tiger .roller{position: relative;}
+.m-ui-tiger .roller li{width: 110px;height: 135px;overflow: hidden;}
+.m-ui-tiger .roller li:last-child{position: absolute;top: 100%;left: 0;}
+.m-ui-tiger .roller img{display: block;width: 110px;height: 135px;}
+.m-ui-tiger .roller.fx-roll{
+  @include css-prefix(filter, blur(3px));
+  @include animation(fx-roll  .5s 0s infinite linear);
+}
+.m-ui-tiger .roller.fx-bounce{@include css-prefix(animation-duration, .3s);}
+
+.m-lottery-scratch{position: relative;width: 16rem;min-height: 100%;margin: 0 auto;padding-top: 9rem;background: url("../images/scratch_page_bg.jpg") no-repeat #ff5e01;background-size: 100% auto;}
+.m-lottery-scratch .game{position: relative;display: block;width: 10rem;margin: 0 auto;height: 5.75rem;}
+.m-lottery-scratch .game canvas{position: absolute;top: 0;left: 0;display: block;width: 100%;height: 100%;background-size: 100% 100%;}
+.m-lottery-scratch .game button{display: block;width: 5rem;height: 1.5rem;margin: 0 auto;text-align: center;line-height: 1.4rem;font-size: 0.7rem;color: #fff;background-color: #ff5e01;border: 0 none;cursor: pointer;
+  @include border-radius(0.3rem);
+}
+.m-lottery-scratch .game button.z-dis{background-color: #bcbcbc;}
+.m-lottery-scratch .game .ceiling{position: absolute;top: 0;left: 0;z-index: 3;width: 100%;height: 4rem;padding: 0.5rem 0 1.25rem;background: url("../images/scratch_ceiling.jpg") no-repeat;background-size: 100% 100%;overflow: hidden;}
+.m-lottery-scratch .game .ceiling .tip{display: block;height: 2.5rem;line-height: 2.5rem;text-align: center;font-size: 0.8rem;color: #ff5e01;overflow: hidden;}
+.m-lottery-scratch .des{margin-top: 2.35rem;padding: 0 1.1rem 0.5rem;line-height: 1.15rem;font-size: 0.6rem;color: #fff;}
+.m-lottery-scratch .des dt{line-height: 1.2rem;font-size: 0.7rem;font-weight: 700;}
+
+.m-lottery-dial{position: relative;width: 16rem;min-height: 100%;margin: 0 auto;padding-top: 7rem;background: url("../images/dial_page_bg.jpg") no-repeat #f94804;background-size: 100% auto;}
+.m-lottery-dial .game-dial{position: relative;width: 12.5rem;height: 12.5rem;margin: 0 auto;}
+.m-lottery-dial .game-dial .dial{width: 100%;height: 100%;background-size: 100% auto;}
+.m-lottery-dial .game-dial .pointer{position: absolute;top: 50%;left: 50%;width: 3.75rem;height: 5.95rem;margin: -3.4rem 0 0 -1.875rem;background-size: 100% auto;
+  @include transform-origin(1.875rem 3.4rem);
+}
+.m-lottery-dial .game-dial .pointer span{position: absolute;top: 1.6rem;left: 0;display: block;width: 3.75rem;height: 3.75rem;cursor: pointer;}
+.m-lottery-dial .des{margin-top: 4.2rem;padding: 0 1.1rem 0.5rem;line-height: 1.15rem;font-size: 0.6rem;color: #fff;}
+.m-lottery-dial .des dt{line-height: 1.2rem;font-size: 0.7rem;font-weight: 700;}
+
+.m-lottery-tiger{position: relative;width: 16rem;min-height: 100%;margin: 0 auto;padding-top: 5.5rem;background: url("../images/tiger_page_bg.jpg") no-repeat #ffeec6;background-size: 100% auto;}
+.m-lottery-tiger .game{position: relative;}
+.m-lottery-tiger .game .back{width: 16rem;height: 10.8rem;background-size: 100%;background-repeat: no-repeat;}
+.m-lottery-tiger .game .item{position: absolute;top: 1.925rem;width: 2.75rem;height: 3.375rem;overflow: hidden;}
+.m-lottery-tiger .game .item:nth-child(1){left: 3.475rem;}
+.m-lottery-tiger .game .item:nth-child(2){left: 6.625rem;}
+.m-lottery-tiger .game .item:nth-child(3){left: 9.775rem;}
+.m-lottery-tiger .game .item .roller{position: relative;
+  @extend .fx-gpu;
+}
+.m-lottery-tiger .game .item .roller li.z-last{position: absolute;top: 100%;left: 0;}
+.m-lottery-tiger .game .item .roller.fx-bounce{@include css-prefix(animation-duration, .3s);}
+.m-lottery-tiger .game .item .roller.fx-roll{
+  @include css-prefix(filter,blur(3px));
+  @include animation(fx-roll .3s 0s infinite linear)
+}
+.m-lottery-tiger .game .item img{display: block;width: 2.75rem;height: 3.375rem;}
+.m-lottery-tiger .game .btn{position: absolute;left: 50%;top: 7.65rem;width: 10.1rem;height: 1.25rem;margin-left: -5.05rem;background-size: 100%;background-repeat: no-repeat;}
+.m-lottery-tiger .game .btn span{display: block;width: 100%;height: 100%;cursor: pointer;}
+.m-lottery-tiger .des{padding: 0 1.1rem 0.5rem;line-height: 1.15rem;font-size: 0.6rem;color: #b26722;}
+.m-lottery-tiger .des dt{line-height: 1.2rem;font-size: 0.7rem;font-weight: 700;}
+
+@include keyframes(fx-roll) {
+  0% {
+    @include transform(translate3d(0, 0, 0));
+  }
+  100% {
+    @include transform(translate3d(0, -100%, 0));
+  }
+}
+
+@include bounce();

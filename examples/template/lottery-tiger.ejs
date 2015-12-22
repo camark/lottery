@@ -1,0 +1,12 @@
+<div class="back" ng-style="lottery.backBackground">
+    <div class="item" ng-repeat="rank in ranks">
+        <ul class="roller">
+            <li ng-repeat="img in lottery.config.prize_web_des">
+                <img ng-src="{{img}}"/>
+            </li>
+        </ul>
+    </div>
+</div>
+<div class="btn" ng-style="lottery.btnBackground">
+    <span class="toggle" ng-click="lottery.start()"></span>
+</div>

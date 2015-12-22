@@ -1,0 +1,29 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+    <meta charset="UTF-8">
+    <meta name="viewport" content="width=device-width,initial-scale=1.0,maximum-scale=1.0,user-scalable=no">
+    <meta name="apple-mobile-web-app-capable" content="yes"/>
+    <meta name="apple-mobile-web-app-status-bar-style" content="black"/>
+    <meta name="format-detection" content="telephone=no,email=no"/>
+    <meta name="screen-orientation" content="portrait">
+    <title>刮刮卡</title>
+    <script src="../bower_components/top-webapp/script/base.js"></script>
+    <link rel="stylesheet" href="css/style.css">
+</head>
+<body>
+<canvas class="m-ui-scratch" id="js_lottery"></canvas>
+<button class="m-ui-button" onclick="lottery.reset()">再来一次</button>
+</body>
+<script src="../src/js/ui-lottery.js"></script>
+<script>
+    var lottery = new Lottery.Scratch(document.getElementById('js_lottery'));
+    lottery.on('start', function (next) {
+        lottery.setResult('images/scratch_no.png');
+        next();
+    });
+    lottery.on('end', function () {
+
+    });
+</script>
+</html>
